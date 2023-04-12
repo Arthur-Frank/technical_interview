@@ -11,6 +11,7 @@
     * 8080 - Cadvisor
     * 9100 - Node_exporter
     * 9001 - use only Jmeter Listener
+add k6 requirements here 
 
 ### Task goal
 
