@@ -3,7 +3,13 @@ version: '3.7'
 volumes:
     prometheus_data: {}
     grafana_data: {}
+    victoria_metrics_data: {}
+    vmagent_data: {}
     postgres_data: {}
+
+configs:
+  postgres_exporter_config:
+    file: ./queries.yaml
 
 networks:
    technical_interview:
@@ -24,41 +30,43 @@ services:
     labels:
         org.label-schema.group: "technical_interview"
 
-  postgres:
-    image: "postgres" 
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/ 
-      - postgres_data:/postgres
-    container_name: postgresdb
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-    command: postgres -c shared_preload_libraries='pg_stat_statements' -c pg_stat_statements.track=all -c pg_stat_statements.track_planning=true -c max_connections=100
-    ports:
-      - 5432:5432
-    networks:
-      - technical_interview
-    labels:
-        org.label-schema.group: "postgres"
-
-  postgres_exporter:
-    image: wrouesnel/postgres_exporter
-    container_name: postgres_exporter
+  vmagent:
+    image: victoriametrics/vmagent
+    container_name: vmagent
     depends_on:
-      - postgres
-    volumes:
-      - ./preconfigure/pg_exporter/:/etc/pg_exporter
-    command:
-      - '--extend.query-path=/etc/pg_exporter/statements.yaml'
+      - "victoria_metrics"
     ports:
-      - 9187:9187
+      - 8429:8429
+    volumes:
+      - vmagent_data:/vmagentdata
+    command:
+      - '--remoteWrite.url=http://victoria_metrics:8428/api/v1/write'
     networks:
       - technical_interview
-    environment:
-      DATA_SOURCE_NAME: "postgresql://postgres:postgres@postgresdb:5432/?sslmode=disable"
-    labels:
-      org.label-schema.group: "monitoring"        
 
+  victoria_metrics:
+    image: victoriametrics/victoria-metrics
+    container_name: victoria_metrics  
+    volumes:
+      - victoria_metrics_data:/victoria-metrics-data
+    command:
+      - '--retentionPeriod=7d'
+      - '--storageDataPath=/storage'
+      - '--graphiteListenAddr=:2003'
+      - '--opentsdbListenAddr=:4242'
+      - '--httpListenAddr=:8428'
+      - '--influxListenAddr=:8089'
+    ports:
+      - 8428:8428
+      - 8089:8089
+      - 8089:8089/udp
+      - 2003:2003
+      - 4242:4242
+    networks:
+      - technical_interview
+    labels:
+      org.label-schema.group: "technical_interview"   
+      
   prometheus:
     image: prom/prometheus
     container_name: prometheus
@@ -70,14 +78,16 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--web.console.libraries=/etc/prometheus/console_libraries'
       - '--web.console.templates=/etc/prometheus/consoles'
-      - '--storage.tsdb.retention=200h'
+      - '--storage.tsdb.retention=1h'
       - '--web.enable-lifecycle'
+      - '--web.enable-admin-api'
+      - '--enable-feature=remote-write-receiver'
     ports:
       - 9090:9090
     networks:
       - technical_interview
     labels:
-      org.label-schema.group: "monitoring"
+      org.label-schema.group: "technical_interview"
 
   grafana:
     image: grafana/grafana
@@ -87,6 +97,7 @@ services:
       - ./preconfigure/grafana/datasources:/etc/grafana/provisioning/datasources
       - ./preconfigure/grafana/dashboards:/etc/grafana/provisioning/dashboards
     environment:
+      - GF_INSTALL_PLUGINS=https://github.com/cloudspout/cloudspout-button-panel/releases/download/7.0.23/cloudspout-button-panel.zip;cloudspout-button-panel
       - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
       - GF_USERS_ALLOW_SIGN_UP=false
@@ -95,24 +106,7 @@ services:
     networks:
       - technical_interview
     labels:
-      org.label-schema.group: "monitoring"
-
-  cadvisor:
-    image: google/cadvisor
-    container_name: cadvisor
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-      - /var/run/docker.sock:/var/run/docker.sock:rw
-      #- /cgroup:/cgroup:ro #only for Linux, not MAC OS
-    ports:
-      - 8080:8080
-    networks:
-      - technical_interview
-    labels:
-      org.label-schema.group: "monitoring"
+      org.label-schema.group: "technical_interview"
 
   nodeexporter:
     image: prom/node-exporter
@@ -132,4 +126,50 @@ services:
     networks:
       - technical_interview
     labels:
-      org.label-schema.group: "monitoring"
+      org.label-schema.group: "technical_interview"
+  
+  statsd-exporter:
+    image: prom/statsd-exporter
+    container_name: statsd_exporter
+    volumes:
+      - ./preconfigure/statsd/statsd_mapping.yml:/tmp/statsd_mapping.yml
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--statsd.mapping-config=/tmp/statsd_mapping.yml'
+    ports:
+      - 9102:9102
+      - 9125:9125
+      - 10000:9125/udp
+    networks:
+      - technical_interview
+    labels:
+      org.label-schema.group: "technical_interview" 
+
+  postgres:
+    image: postgres
+    restart: always
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data:/postgres   
+    environment:
+      POSTGRES_PASSWORD: postgres
+    command: postgres -c shared_preload_libraries='pg_stat_statements' -c pg_stat_statements.track=all -c pg_stat_statements.track_planning=true -c max_connections=100
+    ports:
+      - 5432:5432
+    networks:
+      - technical_interview
+
+  postgres-exporter:
+    image: wrouesnel/postgres_exporter
+    depends_on:
+      - postgres
+    volumes:
+      - ./preconfigure/postgres/:/etc/pg_exporter
+    environment:
+      - DATA_SOURCE_NAME=postgresql://postgres:postgres@postgres:5432/postgres?sslmode=disable
+      - PG_EXPORTER_EXTEND_QUERY_PATH=/etc/pg_exporter/queries.yaml
+    ports:
+      - 9187:9187
+    networks:
+      - technical_interview

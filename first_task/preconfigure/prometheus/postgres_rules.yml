@@ -1,0 +1,186 @@
+groups:
+  - name: pgstat
+    rules:
+    - record: postgres:pg_stat_database_deadlocks:rate1m
+      expr: rate(pg_stat_database_deadlocks[1m]) 
+    - record: postgres:pg_stat_database_conflicts_confl_deadlock:rate1m
+      expr: rate(pg_stat_database_conflicts_confl_deadlock[1m])
+    - record: postgres:pg_stat_database_conflicts:rate1m
+      expr: rate(pg_stat_database_conflicts[1m])
+    - record: postgres:pg_stat_database_conflicts_confl_bufferpin:rate1m
+      expr: rate(pg_stat_database_conflicts_confl_bufferpin[1m])
+    - record: postgres:pg_stat_database_conflicts_confl_snapshot:rate1m
+      expr: rate(pg_stat_database_conflicts_confl_snapshot[1m])
+    - record: postgres:pg_stat_database_conflicts_confl_tablespace:rate1m
+      expr: rate(pg_stat_database_conflicts_confl_tablespace[1m])
+    - record: postgres:pg_stat_database_blks_hit:sumbyrate1
+      expr: sum(rate(pg_stat_database_blks_hit[1m]))by(instance,database)
+    - record: postgres:pg_stat_database_blks_read:sumbyrate1
+      expr: sum(rate(pg_stat_database_blks_read[1m]))by(instance,database)
+    - record: postgres:pg_stat_database_blk_read_time:rate1m
+      expr: rate(pg_stat_database_blk_read_time[1m])
+    - record: postgres:pg_stat_database_blk_write_time:rate1m
+      expr: rate(pg_stat_database_blk_write_time[1m])
+    - record: postgres:pg_stat_database_xact_commit:sumbyirate1m
+      expr: sum(irate(pg_stat_database_xact_commit[1m]))by(instance,database)
+    - record: postgres:pg_stat_database_xact_rollback:sumbyirate1m
+      expr: sum(irate(pg_stat_database_xact_rollback[1m]))by(instance,database)
+    - record: postgres:pg_stat_database_temp_bytes:sum
+      expr: sum(pg_stat_database_temp_bytes)by(instance,database)
+    - record: postgres:pg_stat_database_tup_inserted:sum
+      expr: sum(pg_stat_database_tup_inserted)by(instance,database)
+    - record: postgres:pg_stat_database_tup_fetched:sum
+      expr: sum(pg_stat_database_tup_fetched)by(instance,database)
+    - record: postgres:pg_stat_database_temp_files:sum
+      expr: sum(pg_stat_database_temp_files)by(instance,database)
+    - record: postgres:pg_stat_database_tup_updated:sum
+      expr: sum(pg_stat_database_tup_updated)by(instance,database)
+  - name: pgstat_statements
+    rules:
+    - record: postgres:pg_stat_statements_mean_exec_time:topk20_increase10m
+      expr:   topk(20,increase(pg_stat_statements_mean_exec_time[10m])) 
+    - record: postgres:pg_stat_statements_calls:topk20_increase10m
+      expr:    topk(20,increase(pg_stat_statements_calls[10m]))
+    - record: postgres:pg_stat_statements_rows:sum_increase1m
+      expr:    sum(increase(pg_stat_statements_rows[1m])) by (datname,instance)
+    - record: postgres:pg_stat_statements_total_exec_time:sum_rate1m
+      expr:    sum(rate(pg_stat_statements_total_exec_time[1m])) by (datname,instance)  
+    - record: postgres:pg_stat_statements_max_exec_time:sum_rate1m
+      expr:     sum(rate(pg_stat_statements_max_exec_time[1m])) by (datname,instance) 
+    - record: postgres:pg_stat_statements_mean_exec_time:sum_rate1m
+      expr:    sum(rate(pg_stat_statements_mean_exec_time[1m])) by(datname,instance) 
+    - record: postgres:pg_stat_statements_stddev_exec_time:sum_rate1m
+      expr:    sum(rate(pg_stat_statements_stddev_exec_time[1m])) by (datname,instance) 
+    - record: postgres:pg_stat_statements_min_plan_time:sum_rate1m
+      expr:    sum(rate(pg_stat_statements_min_plan_time[1m])) by (datname,instance)  
+    - record: postgres:pg_stat_statements_shared_blks_hit:sum_increase1m
+      expr:    sum(increase(pg_stat_statements_shared_blks_hit[1m])) by(datname,instance) 
+    - record: postgres:pg_stat_statements_shared_blks_read:sum_increase1m
+      expr:     sum(increase(pg_stat_statements_shared_blks_read[1m])) by (datname,instance) 
+    - record: postgres:pg_stat_statements_shared_blks_dirtied:sum_increase1m
+      expr:     sum(increase(pg_stat_statements_shared_blks_dirtied[1m])) by (datname,instance) 
+    - record: postgres:pg_stat_statements_local_blks_hit:sum_increase1m
+      expr:     sum(increase(pg_stat_statements_local_blks_hit[1m])) by (datname,instance) 
+    - record: postgres:pg_stat_statements_local_blks_read:sum_increase1m
+      expr:    sum(increase(pg_stat_statements_local_blks_read[1m])) by (datname,instance) 
+    - record: postgres:pg_stat_statements_blk_write_time:sum_increase1m
+      expr:    sum(increase(pg_stat_statements_blk_write_time[1m])) by (datname,instance) 
+    - record: postgres:pg_stat_statements_temp_blks_read:sum_increase1m
+      expr:   sum(increase(pg_stat_statements_temp_blks_read[1m])) by (datname,instance) 
+    - record: postgres:pg_stat_statements_local_blks_dirtied:sum_increase1m
+      expr:   sum(increase(pg_stat_statements_local_blks_dirtied[1m])) by (datname,instance) 
+    - record: postgres:pg_stat_statements_temp_blks_written:sum_increase1m
+      expr:   sum(increase(pg_stat_statements_temp_blks_written[1m])) by (datname,instance) 
+    
+  # - name: postgresql.rules
+  #   rules:
+
+  #   - alert: PostgreSQLExporterPGserver94
+  #     expr: absent(up{instance="postgres-exporter-pgserver94:9187",job="postgres-exporter"} == 1)
+  #     for: 2h
+  #     labels:
+  #       severity: warning
+  #     annotations:
+  #       summary: postgres-exporter-pgserver94 has disappeared from Prometheus target discovery.
+
+  #   - alert: PostgreSQLRollbacks
+  #     expr: rate(pg_stat_database_xact_rollback[1m]) > 10
+  #     for: 5m
+  #     labels:
+  #       severity: warning
+  #       channel: database
+  #     annotations:
+  #       description: 'Rollbacks on {{$labels.server}} {{$labels.datname}} is occuring at a rate of {{$value}} per minute'
+  #       summary: 'Rollbacks are occurring on {{$labels.server}} {{$labels.datname}}'
+
+  #   - alert: PostgreSQL_Replication_Lag_10GB
+  #     expr: pg_replication_replay_location_lag > 10000000000
+  #     labels:
+  #       channel: database
+  #       severity: warning
+  #     annotations:
+  #       description: 'Database replication replay location lag on {{$labels.server}} to {{$labels.application_name}} is {{ $value | humanize }}B'
+  #       summary: 'Postgres replication lag is {{ $value | humanize }}B'
+
+  #   - alert: PGExporterScrapeError
+  #     expr: pg_exporter_last_scrape_error > 0
+  #     for: 5h
+  #     labels:
+  #       channel: database
+  #       service: postgresql
+  #       severity: warning
+  #       severity_num: 300
+  #     annotations:
+  #       summary: 'Postgres Exporter running on {{ $labels.job }} (instance: {{ $labels.instance }}) is encountering scrape errors processing queries. Error count: ( {{ $value }} )'
+
+  #   - alert: PGIsUp
+  #     expr: pg_up < 1
+  #     for: 5h
+  #     labels:
+  #       channel: database
+  #       service: postgresql
+  #       severity: warning
+  #       severity_num: 300
+  #     annotations:
+  #       summary: 'postgres_exporter running on {{ $labels.job }} is unable to communicate with the configured database'
+
+  #   - alert: PGXIDWraparound
+  #     expr: ccp_transaction_wraparound_percent_towards_wraparound > 50
+  #     for: 2h
+  #     labels:
+  #       channel: database
+  #       service: postgresql
+  #       severity: warning
+  #       severity_num: 200
+  #     annotations:
+  #       description: 'PGSQL Instance {{ $labels.job }} is over 50% towards transaction id wraparound.'
+  #       summary: 'PGSQL Instance {{ $labels.job }} transaction id wraparound imminent'
+
+  #   - alert: PGXIDWraparound
+  #     expr: ccp_transaction_wraparound_percent_towards_wraparound > 75
+  #     for: 5h
+  #     labels:
+  #       channel: database
+  #       service: postgresql
+  #       severity: critical
+  #       severity_num: 300
+  #     annotations:
+  #       description: 'PGSQL Instance {{ $labels.job }} is over 75% towards transaction id wraparound.'
+  #       summary: 'PGSQL Instance transaction id wraparound imminent'
+
+  #   - alert: PGEmergencyVacuum
+  #     expr: ccp_transaction_wraparound_percent_towards_emergency_autovac > 110
+  #     for: 5h
+  #     labels:
+  #       channel: database
+  #       service: postgresql
+  #       severity: warning
+  #       severity_num: 200
+  #     annotations:
+  #       description: 'PGSQL Instance {{ $labels.job }} is over 110% beyond autovacuum_freeze_max_age value. Autovacuum may need tuning to better keep up.'
+  #       summary: 'PGSQL Instance emergency vacuum imminent'
+
+  #   - alert: PGEmergencyVacuum
+  #     expr: ccp_transaction_wraparound_percent_towards_emergency_autovac > 125
+  #     for: 2h
+  #     labels:
+  #       channel: database
+  #       service: postgresql
+  #       severity: critical
+  #       severity_num: 300
+  #     annotations:
+  #       description: 'PGSQL Instance {{ $labels.job }} is over 125% beyond autovacuum_freeze_max_age value. Autovacuum needs tuning to better keep up.'
+  #       summary: 'PGSQL Instance emergency vacuum imminent'
+
+  #   - alert: PGReplicationSlotsInactive
+  #     expr: ccp_replication_slots_active == 0
+  #     for: 5h
+  #     labels:
+  #       channel: database
+  #       service: postgresql
+  #       severity: warning
+  #       severity_num: 300
+  #     annotations:
+  #       description: 'PGSQL Instance {{ $labels.job }} has one or more inactive replication slots'
+  #       summary: 'PGSQL Instance inactive replication slot'
+  

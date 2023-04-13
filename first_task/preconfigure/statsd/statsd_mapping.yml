@@ -1,0 +1,19 @@
+defaults:
+  ttl: 1m
+mappings:
+- match: "k6.*"
+  name: "k6_${1}"
+  summary_options:
+    quantiles:
+      - quantile: 0.99
+        error: 0.001
+      - quantile: 0.95
+        error: 0.01
+      - quantile: 0.9
+        error: 0.05
+- match: "k6.check.*.*.*"
+  name: "k6_check"
+  labels:
+    http_name: "$1"
+    check_name: "$2"
+    outcome: "$3"
