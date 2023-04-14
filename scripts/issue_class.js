@@ -22,7 +22,7 @@ class Issue{
             parent_transaction: '',
             endpoint: ''
         })
-        this.responseCallback = (data.responseCallback || http.expectedStatuses(200 ))
+        //this.responseCallback = (data.responseCallback || http.expectedStatuses(200 ))
         this.errorCounter = (data.errorCounter)
         this.searchParams = (data.searchParams || {})
     }
@@ -49,10 +49,10 @@ class Issue{
                 error_code: res.error_code,
                 method: res.request.method,
                 endpoint: this.tags.endpoint,
-                check_error: "could not get user"
+                check_error: "could not get user after update"
             })
             if (Boolean(!__ENV.DEBUG)) {
-                fail(`could not get user ${id}`)
+                fail(`could not get user`)
             }
         }
         return res
@@ -60,7 +60,7 @@ class Issue{
 
     createUser() {
         this.tags.endpoint = "/api/v1/users/createrandomuser"
-        const url = this.api_url+this.tags.endpoint
+        const url = `${this.api_url}${this.tags.endpoint}`
         const res = http.post(url.toString(), {
             headers: this.headers,
             tags: this.tags,
@@ -114,7 +114,7 @@ class Issue{
                 check_error: "could not get users list"
             })
             if (Boolean(!__ENV.DEBUG)) {
-                fail(`Could not get users list ${url.toString()}: status != 200. Status is ${res.status}`)
+                fail(`Could not get all users list. Status is ${res.status}`)
             }
         }
         return res
@@ -146,10 +146,10 @@ class Issue{
                 error_code: res.error_code,
                 method: res.request.method,
                 endpoint: this.tags.endpoint,
-                check_error: "could not sent update request"
+                check_error: "could not sent update request for a user"
             })
             if (Boolean(!__ENV.DEBUG)) {
-                fail(`Could not sent update request for ${id}`)
+                fail(`Could not sent update request for`)
             }
         }
         return res
@@ -184,7 +184,7 @@ class Issue{
                 check_error: "could not delete user"
             })
             if (Boolean(!__ENV.DEBUG)) {
-                fail(`Could not delete user ${id.id}`)
+                fail(`Could not delete user`)
             }
         }
         return res
