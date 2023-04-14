@@ -56,7 +56,7 @@ type User struct {
 	Gender    string    `json:"gender,omitempty" db:"gender"`
 }
 
-//New  - create and return new fake user
+// New  - create and return new fake user
 func New() User {
 	return User{
 		ID:        uuid.New(),
@@ -140,7 +140,7 @@ func initScheme() {
 func insertTestValues() {
 	log.Println("start insert test values")
 	tx := DB.MustBegin()
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 10000; i++ {
 		u := New()
 		_, err := tx.NamedExec("INSERT INTO users (id,firstname,lastname,phone,email,gender) VALUES (:id,:firstname,:lastname,:phone,:email,:gender)", &u)
 		if err != nil {

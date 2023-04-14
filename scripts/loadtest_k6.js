@@ -26,59 +26,70 @@ export const options = {
       executor: "ramping-arrival-rate",
       startRate: 0,
       timeUnit: '2s',
-      preAllocatedVUs: 20,
-      maxVUs: 20,
+      preAllocatedVUs: 5,
+      maxVUs: 10,
       stages: [
-        { duration: '1m', target: 20 },
-        { duration: '65m', target: 20 },
-        // { duration: '1m', target: 60 },
-        // { duration: '5m', target: 60 },
-        // { duration: '1m', target: 70 },
-        // { duration: '5m', target: 70 },
-        // { duration: '1m', target: 80 },
-        // { duration: '5m', target: 80 },
-        // { duration: '1m', target: 90 },
-        // { duration: '5m', target: 90},
-        // { duration: '1m', target: 100 },
-        // { duration: '35m', target: 100 }
+        { duration: '30s', target: 2 },
+        { duration: '88m', target: 2 },
+        // { duration: '30s', target: 2},
+        // { duration: '3m', target: 2 },
+        // { duration: '30s', target: 3 },
+        // { duration: '3m', target: 3 },
+        // { duration: '30s', target: 4 },
+        // { duration: '30m', target: 4 },
+        // { duration: '1m', target: 14 },
+        // { duration: '5m', target: 14 },
+        // { duration: '1m', target: 16 },
+        // { duration: '5m', target: 16 },
+        // { duration: '1m', target: 18 },
+        // { duration: '5m', target: 18 },
+        // { duration: '1m', target: 20 },
+        // { duration: '35m', target: 20 }
       ],
-      exec: 'createIssue'
+      exec: 'createIssue' 
     },
     updater: {
       executor: "ramping-arrival-rate",
       startRate: 0,
-      timeUnit: '3s',
-      preAllocatedVUs: 100,
-      maxVUs: 1200,
+      timeUnit: '1s',
+      preAllocatedVUs: 250,
+      maxVUs: 500,
       stages: [
-        { duration: '1m', target: 50 },
-        { duration: '5m', target: 50 },
-        // { duration: '1m', target: 150 },
-        // { duration: '5m', target: 150 },
-        { duration: '1m', target: 250 },
-        { duration: '5m', target: 250 },
-        { duration: '1m', target: 500 },
-        { duration: '5m', target: 500 },
-        { duration: '1m', target: 750 },
-        { duration: '5m', target: 750 },
-        { duration: '1m', target: 900 },
-        { duration: '41m', target: 900 },
+        { duration: '30s', target: 2 },
+        { duration: '3m', target: 2 },
+        { duration: '30s', target: 4},
+        { duration: '3m', target: 4 },
+        { duration: '30s', target: 6 },
+        { duration: '3m', target: 6 },
+        { duration: '30s', target: 8 },
+        { duration: '3m', target: 8 },
+        { duration: '30s', target: 10 },
+        { duration: '3m', target: 10 },
+        { duration: '30s', target: 12 },
+        { duration: '3m', target: 12 },
+        { duration: '30s', target: 14 },
+        { duration: '3m', target: 14 },
+        { duration: '30s', target: 16 },
+        { duration: '3m', target: 16 },
+        { duration: '30s', target: 18 },
+        { duration: '60m', target: 18 },
+        // { duration: '30s', target: 20 },
+        // { duration: '20m', target: 20 },
       ],
       exec: 'updateIssueChain'
     },
   }
 }
 
-let issue = new Issue(data)
+
 
 export function createIssue() {
+  let issue = new Issue(data)
   describe('create user', (t) => {
-    const creater = issue.createUser()
+  let creater = issue.createUser()
     if (
       !check(creater, {
-        "returned json for created user is not empty": (creater) => creater.json(),
-      }, {
-        task: "user creation failed"
+        "returned json for created user has data": (creater) => creater.json(),
       })
     ) {
       console.log(creater)
@@ -99,13 +110,14 @@ export function createIssue() {
 }
 
 export function updateIssueChain() {
-  let iter = 0
+  let issue = new Issue(data)
   let users_list
+
   describe('get users list', (t) => {
     users_list = issue.getUsers().json()
     if (
       !check ( users_list, {
-        "returned list of users is not empty --- ok": (users_list) => users_list, 
+        "returned list of users has data": (users_list) => users_list, 
       }) 
     ){
       if (Boolean(!__ENV.DEBUG)) {
@@ -129,16 +141,15 @@ export function updateIssueChain() {
       }) 
     ){
       if (Boolean(!__ENV.DEBUG)) {
-        fail(`user JSON is not updated ${user.id}`)        
+        fail(`user JSON is not updated`)        
       }
     }
   })
-  if ((__ITER%3)==0) {
-    if ((__VU % 30) == 0 && (__VU > 0)) {
-      console.log(`VU: ${__VU}, ITER: ${__ITER}`)
+    if (__VU%250===0 && __VU>0){
       describe('delete user', (t) => {
         issue.deleteUser(user)
+        console.log(`delete used on iter: ${__ITER} for user: ${__VU}`)
       })
-    }
   }
+
 }

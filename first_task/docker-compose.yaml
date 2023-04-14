@@ -173,3 +173,20 @@ services:
       - 9187:9187
     networks:
       - technical_interview
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.44.1-test
+    container_name: cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      #- /cgroup:/cgroup:ro #only for Linux, not MAC OS
+    ports:
+      - 8080:8080
+    networks:
+      - technical_interview
+    labels:
+      org.label-schema.group: "technical_interview"
