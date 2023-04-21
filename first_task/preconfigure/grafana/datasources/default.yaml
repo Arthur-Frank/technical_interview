@@ -1,9 +1,15 @@
 apiVersion: 1
 
 datasources:
-  - name: Victoria_metrics
+  # - name: Victoria_metrics
+  #   type: prometheus
+  #   url: http://victoria_metrics:8428/
+  #   access: proxy
+  #   basicAuth: false
+
+  - name: Prometheus
     type: prometheus
-    url: http://victoria_metrics:8428/
+    url: http://prometheus:9090/
     access: proxy
     basicAuth: false
     

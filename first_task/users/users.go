@@ -15,22 +15,24 @@ import (
 var (
 	DB     *sqlx.DB
 	schema = `
-	CREATE TABLE IF NOT EXISTS users (
-		id        uuid PRIMARY KEY,
-		firstname varchar NOT NULL,
-		lastname  varchar NOT NULL,
-		phone     varchar NOT NULL,
-		email      varchar NOT NULL,
-		gender    varchar(6) NOT NULL
-	);
-	
-	CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
-	`
+  CREATE TABLE IF NOT EXISTS users (
+    id        uuid PRIMARY KEY,
+    firstname varchar NOT NULL,
+    lastname  varchar NOT NULL,
+    phone     varchar NOT NULL,
+    email      varchar NOT NULL,
+    gender    varchar(6) NOT NULL
+  );
+  
+  CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
+  `
 )
 
 func InitDB(connStr string) {
 	var err error
 	DB, err = sqlx.Connect("postgres", connStr)
+	DB.SetMaxIdleConns(30)
+	DB.SetMaxOpenConns(150)
 	if err != nil {
 		log.Printf("Database connection error %s\n", err)
 	}
@@ -140,7 +142,7 @@ func initScheme() {
 func insertTestValues() {
 	log.Println("start insert test values")
 	tx := DB.MustBegin()
-	for i := 0; i < 10000; i++ {
+	for i := 0; i < 1000; i++ {
 		u := New()
 		_, err := tx.NamedExec("INSERT INTO users (id,firstname,lastname,phone,email,gender) VALUES (:id,:firstname,:lastname,:phone,:email,:gender)", &u)
 		if err != nil {

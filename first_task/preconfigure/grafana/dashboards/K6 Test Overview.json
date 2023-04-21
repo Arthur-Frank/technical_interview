@@ -29,7 +29,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -77,7 +77,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "rate(k6_iterations{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$interval])",
@@ -94,7 +94,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093" 
       },
       "fieldConfig": {
         "defaults": {
@@ -163,7 +163,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])\n",
@@ -179,7 +179,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -390,7 +390,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": false,
           "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[$interval])) by (endpoint)",
@@ -404,7 +404,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": false,
           "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[$__interval]))by(endpoint)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[$__interval]))by(endpoint)",
@@ -418,7 +418,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": false,
           "expr": "last_over_time(histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[$__interval])) by (le,endpoint))[${__range_s}s:$__interval])",
@@ -432,7 +432,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": false,
           "expr": "sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[${__range_s}s])by(endpoint)",
@@ -446,7 +446,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": false,
           "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[${__range_s}s])by(endpoint)\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[${__range_s}s])by(endpoint)",
@@ -486,7 +486,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -534,7 +534,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -551,7 +551,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -602,7 +602,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "sum(rate(k6_check{outcome=\"fail\"}[$__rate_interval])) / sum(rate(k6_check[$__rate_interval]))",
@@ -617,7 +617,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -661,7 +661,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[$interval]))+sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[$interval]))",
@@ -677,7 +677,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -740,7 +740,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "k6_iterations{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}",
@@ -757,7 +757,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -801,7 +801,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])",
@@ -818,7 +818,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -862,7 +862,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "k6_vus{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}",
@@ -879,7 +879,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -1003,7 +1003,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "rate(k6_data_received{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$interval])",
@@ -1014,7 +1014,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "rate(k6_data_sent{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$interval])",
@@ -1030,7 +1030,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PB9732EF3D2790863"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -1074,7 +1074,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
           "expr": "k6_vus_max{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}",
@@ -1101,7 +1101,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -1270,7 +1270,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$interval])) > 0",
@@ -1281,7 +1281,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum by (status) (rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) > 0",
@@ -1294,7 +1294,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$interval])) >0",
@@ -1310,7 +1310,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -1494,7 +1494,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario!=\"\"}[$interval])) by(scenario)> 0 ",
@@ -1505,7 +1505,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario!=\"\"}[$interval]))  by(scenario)> 0 ",
@@ -1521,7 +1521,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -1705,7 +1705,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$interval])) by(transaction)> 0 ",
@@ -1716,7 +1716,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$interval]))  by(transaction)> 0 ",
@@ -1732,7 +1732,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -1901,7 +1901,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[$interval])) by(operation)> 0 ",
@@ -1912,7 +1912,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[$interval]))  by(operation)> 0 ",
@@ -1928,7 +1928,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -2097,7 +2097,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=\"\"}[$interval])) by(endpoint)> 0 ",
@@ -2108,7 +2108,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=\"\"}[$interval]))  by(endpoint)> 0 ",
@@ -2124,7 +2124,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -2295,7 +2295,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=\"\"}[$interval])) by(name)> 0 ",
@@ -2306,7 +2306,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=\"\"}[$interval]))  by(name)> 0 ",
@@ -2336,7 +2336,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -2460,7 +2460,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le))",
@@ -2472,7 +2472,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -2488,7 +2488,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -2642,7 +2642,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario!=\"\"}[$__interval]))by(scenario)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario!=\"\"}[$__interval]))by(scenario)",
@@ -2658,7 +2658,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -2797,7 +2797,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario!=\"\"}[$__interval])) by (le,scenario))",
@@ -2813,7 +2813,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -2967,7 +2967,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$__interval]))by(transaction)",
@@ -2983,7 +2983,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -3137,7 +3137,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$__interval])) by (le,transaction))",
@@ -3153,7 +3153,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -3294,7 +3294,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[$__interval]))by(operation)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[$__interval]))by(operation)",
@@ -3310,7 +3310,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -3451,7 +3451,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[$__interval])) by (le,operation))",
@@ -3467,7 +3467,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -3606,7 +3606,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=\"\"}[$__interval]))by(endpoint)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=\"\"}[$__interval]))by(endpoint)",
@@ -3622,7 +3622,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -3761,7 +3761,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=\"\"}[$__interval])) by (le,endpoint))",
@@ -3777,7 +3777,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -3916,7 +3916,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=\"\"}[$__interval]))by(name)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=\"\"}[$__interval]))by(name)",
@@ -3932,7 +3932,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -4071,7 +4071,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=\"\"}[$__interval])) by (le,name))",
@@ -4101,7 +4101,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "blocked - Time spent blocked (waiting for a free TCP connection slot) before initiating the request\nconnecting- Time spent establishing TCP connection to the remote host\nhandshaking - Time spent handshaking TLS session with remote host\nsending- Time spent sending data to the remote host\nwaiting - Time spent waiting for response from remote host (a.k.a. “time to first byte”, or “TTFB”)\nreceiving - Time spent receiving response data from the remote host",
           "fieldConfig": {
@@ -4225,7 +4225,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_blocked_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_blocked_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -4237,7 +4237,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_connecting_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_connecting_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -4249,7 +4249,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_tls_handshaking_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_tls_handshaking_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -4261,7 +4261,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_sending_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_sending_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -4273,7 +4273,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_waiting_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_waiting_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -4285,7 +4285,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_receiving_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_receiving_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -4301,7 +4301,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "blocked - Time spent blocked (waiting for a free TCP connection slot) before initiating the request\nconnecting- Time spent establishing TCP connection to the remote host\nhandshaking - Time spent handshaking TLS session with remote host\nsending- Time spent sending data to the remote host\nwaiting - Time spent waiting for response from remote host (a.k.a. “time to first byte”, or “TTFB”)\nreceiving - Time spent receiving response data from the remote host",
           "fieldConfig": {
@@ -4425,7 +4425,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_blocked_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le))",
@@ -4437,7 +4437,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_connecting_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le))",
@@ -4449,7 +4449,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_tls_handshaking_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le))",
@@ -4461,7 +4461,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_sending_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le))",
@@ -4473,7 +4473,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_waiting_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le))",
@@ -4485,7 +4485,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_receiving_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le))",
@@ -4515,7 +4515,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -4724,7 +4724,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$interval])) by (scenario)",
@@ -4738,7 +4738,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))by(scenario)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))by(scenario)",
@@ -4752,7 +4752,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "last_over_time(histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le,scenario))[${__range_s}s:$__interval])",
@@ -4766,7 +4766,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])by(scenario)",
@@ -4780,7 +4780,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])by(scenario)\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])by(scenario)",
@@ -4819,7 +4819,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -5028,7 +5028,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$interval])) by (transaction)",
@@ -5042,7 +5042,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$__interval]))by(transaction)",
@@ -5056,7 +5056,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "last_over_time(histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$__interval])) by (le,transaction))[${__range_s}s:$__interval])",
@@ -5070,7 +5070,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[${__range_s}s])by(transaction)",
@@ -5084,7 +5084,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[${__range_s}s])by(transaction)\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[${__range_s}s])by(transaction)",
@@ -5123,7 +5123,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -5332,7 +5332,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[$interval])) by (operation)",
@@ -5346,7 +5346,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[$__interval]))by(operation)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[$__interval]))by(operation)",
@@ -5360,7 +5360,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "last_over_time(histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[$__interval])) by (le,operation))[${__range_s}s:$__interval])",
@@ -5374,7 +5374,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[${__range_s}s])by(operation)",
@@ -5388,7 +5388,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[${__range_s}s])by(operation)\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",operation!=\"\"}[${__range_s}s])by(operation)",
@@ -5428,7 +5428,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -5637,7 +5637,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[$interval])) by (endpoint)",
@@ -5651,7 +5651,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -5665,7 +5665,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "last_over_time(histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le,endpoint))[${__range_s}s:$__interval])",
@@ -5679,7 +5679,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[${__range_s}s])by(endpoint)",
@@ -5693,7 +5693,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[${__range_s}s])by(endpoint)\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint!=''}[${__range_s}s])by(endpoint)",
@@ -5733,7 +5733,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -5942,7 +5942,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=''}[$interval])) by (name)",
@@ -5956,7 +5956,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=''}[$__interval]))by(name)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=''}[$__interval]))by(name)",
@@ -5970,7 +5970,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "last_over_time(histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=''}[$__interval])) by (le,name))[${__range_s}s:$__interval])",
@@ -5984,7 +5984,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=''}[${__range_s}s])by(name)",
@@ -5998,7 +5998,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=''}[${__range_s}s])by(name)\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",name!=''}[${__range_s}s])by(name)",
@@ -6052,7 +6052,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -6120,7 +6120,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])\n",
@@ -6136,7 +6136,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -6251,7 +6251,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])",
@@ -6264,7 +6264,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])by(error_code)",
@@ -6280,7 +6280,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -6330,7 +6330,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_check{outcome=\"fail\"}[$__rate_interval])) / sum(rate(k6_check[$__rate_interval]))",
@@ -6345,7 +6345,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -6447,7 +6447,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_check{outcome=\"fail\"}[${__range_s}s])",
@@ -6464,7 +6464,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -6609,7 +6609,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\", expected_response=\"false\"}) by (endpoint,error_code,status,error)",
@@ -6623,7 +6623,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_check{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",outcome=\"fail\"}[${__range_s}s])",
@@ -6637,7 +6637,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "count(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\", expected_response=\"false\"}) by (endpoint,error_code,status,error)",
@@ -6705,7 +6705,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -6874,7 +6874,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$interval])) > 0",
@@ -6885,7 +6885,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum by (status) (rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))",
@@ -6898,7 +6898,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$interval])) >0",
@@ -6914,7 +6914,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -7041,7 +7041,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval])) by (le))",
@@ -7053,7 +7053,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))",
@@ -7069,7 +7069,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "blocked - Time spent blocked (waiting for a free TCP connection slot) before initiating the request\nconnecting- Time spent establishing TCP connection to the remote host\nhandshaking - Time spent handshaking TLS session with remote host\nsending- Time spent sending data to the remote host\nwaiting - Time spent waiting for response from remote host (a.k.a. “time to first byte”, or “TTFB”)\nreceiving - Time spent receiving response data from the remote host",
           "fieldConfig": {
@@ -7191,7 +7191,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_blocked_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))\n/ sum(rate(k6_http_req_blocked_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))",
@@ -7203,7 +7203,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_connecting_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))\n/ sum(rate(k6_http_req_connecting_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))",
@@ -7215,7 +7215,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_tls_handshaking_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))\n/ sum(rate(k6_http_req_tls_handshaking_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))",
@@ -7227,7 +7227,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_sending_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))\n/ sum(rate(k6_http_req_sending_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))",
@@ -7239,7 +7239,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_waiting_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))\n/ sum(rate(k6_http_req_waiting_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))",
@@ -7251,7 +7251,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_receiving_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))\n/ sum(rate(k6_http_req_receiving_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))",
@@ -7267,7 +7267,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "blocked - Time spent blocked (waiting for a free TCP connection slot) before initiating the request\nconnecting- Time spent establishing TCP connection to the remote host\nhandshaking - Time spent handshaking TLS session with remote host\nsending- Time spent sending data to the remote host\nwaiting - Time spent waiting for response from remote host (a.k.a. “time to first byte”, or “TTFB”)\nreceiving - Time spent receiving response data from the remote host",
           "fieldConfig": {
@@ -7389,7 +7389,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_blocked_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval])) by (le))",
@@ -7401,7 +7401,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_connecting_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval])) by (le))",
@@ -7413,7 +7413,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_tls_handshaking_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval])) by (le))",
@@ -7425,7 +7425,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_sending_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval])) by (le))",
@@ -7437,7 +7437,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_waiting_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval])) by (le))",
@@ -7449,7 +7449,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_receiving_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval])) by (le))",
@@ -7465,7 +7465,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "",
           "fieldConfig": {
@@ -7587,7 +7587,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_iteration_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval])) by (le))",
@@ -7599,7 +7599,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_iteration_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))by(scenario)\n/ sum(rate(k6_iteration_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$__interval]))by(scenario)",
@@ -7615,7 +7615,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -7738,7 +7738,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "rate(k6_data_received{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$interval])",
@@ -7749,7 +7749,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "rate(k6_data_sent{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$interval])",
@@ -7765,7 +7765,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -7880,7 +7880,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[${__range_s}s])",
@@ -7893,7 +7893,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[${__range_s}s])by(error_code)",
@@ -7909,7 +7909,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -8011,7 +8011,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_check{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",outcome=\"fail\",scenario=\"$scenario\"}[${__range_s}s])",
@@ -8028,7 +8028,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -8237,7 +8237,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$interval])) by (scenario)",
@@ -8251,7 +8251,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))by(scenario)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval]))by(scenario)",
@@ -8265,7 +8265,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "last_over_time(histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[$__interval])) by (le,scenario))[${__range_s}s:$__interval])",
@@ -8279,7 +8279,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])by(scenario)",
@@ -8293,7 +8293,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])by(scenario)\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}[${__range_s}s])by(scenario)",
@@ -8332,7 +8332,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -8477,7 +8477,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\", expected_response=\"false\",scenario=\"$scenario\"}) by (scenario,error_code,status,error)",
@@ -8491,7 +8491,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_check{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",outcome=\"fail\",scenario=\"$scenario\"}[${__range_s}s])",
@@ -8505,7 +8505,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "count(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\", expected_response=\"false\",scenario=\"$scenario\"}) by (scenario,error_code,status,error)",
@@ -8574,7 +8574,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -8743,7 +8743,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$interval])) > 0",
@@ -8754,7 +8754,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum by (status) (rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))",
@@ -8767,7 +8767,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$interval])) >0",
@@ -8783,7 +8783,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -8907,7 +8907,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction=\"$transaction\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction=\"$transaction\"}[$__interval]))by(transaction)",
@@ -8919,7 +8919,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval])) by (le,transaction))",
@@ -8935,7 +8935,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "blocked - Time spent blocked (waiting for a free TCP connection slot) before initiating the request\nconnecting- Time spent establishing TCP connection to the remote host\nhandshaking - Time spent handshaking TLS session with remote host\nsending- Time spent sending data to the remote host\nwaiting - Time spent waiting for response from remote host (a.k.a. “time to first byte”, or “TTFB”)\nreceiving - Time spent receiving response data from the remote host",
           "fieldConfig": {
@@ -9057,7 +9057,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_blocked_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_blocked_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)",
@@ -9069,7 +9069,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_connecting_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_connecting_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)",
@@ -9081,7 +9081,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_tls_handshaking_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_tls_handshaking_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)",
@@ -9093,7 +9093,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_sending_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_sending_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)",
@@ -9105,7 +9105,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_waiting_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_waiting_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)",
@@ -9117,7 +9117,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_receiving_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_receiving_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval]))by(transaction)",
@@ -9133,7 +9133,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "blocked - Time spent blocked (waiting for a free TCP connection slot) before initiating the request\nconnecting- Time spent establishing TCP connection to the remote host\nhandshaking - Time spent handshaking TLS session with remote host\nsending- Time spent sending data to the remote host\nwaiting - Time spent waiting for response from remote host (a.k.a. “time to first byte”, or “TTFB”)\nreceiving - Time spent receiving response data from the remote host",
           "fieldConfig": {
@@ -9255,7 +9255,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_blocked_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval])) by (le,transaction))",
@@ -9267,7 +9267,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_connecting_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval])) by (le,transaction))",
@@ -9279,7 +9279,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_tls_handshaking_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval])) by (le,transaction))",
@@ -9291,7 +9291,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_sending_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval])) by (le,transaction))",
@@ -9303,7 +9303,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_waiting_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval])) by (le,transaction))",
@@ -9315,7 +9315,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_receiving_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval])) by (le,transaction))",
@@ -9331,7 +9331,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -9498,7 +9498,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$interval])) by(operation)> 0",
@@ -9513,7 +9513,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -9680,7 +9680,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}[$interval])) by (operation)>0",
@@ -9695,7 +9695,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -9817,7 +9817,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction=\"$transaction\"}[$__interval]))by(operation)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction=\"$transaction\"}[$__interval]))by(operation)",
@@ -9833,7 +9833,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -9955,7 +9955,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\",transaction=\"$transaction\"}[$__interval])) by (le,operation))",
@@ -9971,7 +9971,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -10180,7 +10180,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$interval])) by (transaction)",
@@ -10194,7 +10194,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$__interval]))by(transaction)\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$__interval]))by(transaction)",
@@ -10208,7 +10208,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "last_over_time(histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[$__interval])) by (le,transaction))[${__range_s}s:$__interval])",
@@ -10222,7 +10222,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[${__range_s}s])by(transaction)",
@@ -10236,7 +10236,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[${__range_s}s])by(transaction)\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction!=\"\"}[${__range_s}s])by(transaction)",
@@ -10275,7 +10275,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -10420,7 +10420,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\", expected_response=\"false\",transaction=\"$transaction\"}) by (transaction,error_code,status,error)",
@@ -10434,7 +10434,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "count(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\", expected_response=\"false\",transaction=\"$transaction\"}) by (transaction,error_code,status,error)",
@@ -10486,7 +10486,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -10601,7 +10601,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction=\"$transaction\"}[${__range_s}s])",
@@ -10614,7 +10614,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",transaction=\"$transaction\"}[${__range_s}s])by(error_code)",
@@ -10645,7 +10645,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -10814,7 +10814,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$interval])) by(endpoint) ",
@@ -10825,7 +10825,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$interval])) >0",
@@ -10841,7 +10841,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total time for the request. It's equal to http_req_sending + http_req_waiting + http_req_receiving (i.e. how long did the remote server take to process the request and respond, without the initial DNS lookup/connection times).",
           "fieldConfig": {
@@ -10968,7 +10968,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval])) by (le))",
@@ -10980,7 +10980,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))",
@@ -10996,7 +10996,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "blocked - Time spent blocked (waiting for a free TCP connection slot) before initiating the request\nconnecting- Time spent establishing TCP connection to the remote host\nhandshaking - Time spent handshaking TLS session with remote host\nsending- Time spent sending data to the remote host\nwaiting - Time spent waiting for response from remote host (a.k.a. “time to first byte”, or “TTFB”)\nreceiving - Time spent receiving response data from the remote host",
           "fieldConfig": {
@@ -11118,7 +11118,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_blocked_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))\n/ sum(rate(k6_http_req_blocked_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))",
@@ -11130,7 +11130,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_connecting_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))\n/ sum(rate(k6_http_req_connecting_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))",
@@ -11142,7 +11142,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_tls_handshaking_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))\n/ sum(rate(k6_http_req_tls_handshaking_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))",
@@ -11154,7 +11154,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_sending_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))\n/ sum(rate(k6_http_req_sending_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))",
@@ -11166,7 +11166,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_waiting_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))\n/ sum(rate(k6_http_req_waiting_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))",
@@ -11178,7 +11178,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(rate(k6_http_req_receiving_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))\n/ sum(rate(k6_http_req_receiving_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))",
@@ -11194,7 +11194,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "blocked - Time spent blocked (waiting for a free TCP connection slot) before initiating the request\nconnecting- Time spent establishing TCP connection to the remote host\nhandshaking - Time spent handshaking TLS session with remote host\nsending- Time spent sending data to the remote host\nwaiting - Time spent waiting for response from remote host (a.k.a. “time to first byte”, or “TTFB”)\nreceiving - Time spent receiving response data from the remote host",
           "fieldConfig": {
@@ -11316,7 +11316,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_blocked_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval])) by (le))",
@@ -11328,7 +11328,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_connecting_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval])) by (le))",
@@ -11340,7 +11340,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_tls_handshaking_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval])) by (le))",
@@ -11352,7 +11352,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_sending_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval])) by (le))",
@@ -11364,7 +11364,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_waiting_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval])) by (le))",
@@ -11376,7 +11376,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.90, sum(rate(k6_http_req_receiving_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval])) by (le))",
@@ -11392,7 +11392,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -11507,7 +11507,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[${__range_s}s])",
@@ -11520,7 +11520,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": true,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[${__range_s}s])by(error_code)",
@@ -11536,7 +11536,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -11745,7 +11745,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$interval]))",
@@ -11759,7 +11759,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(rate(k6_http_req_duration_sum{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))\n/ sum(rate(k6_http_req_duration_count{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval]))",
@@ -11773,7 +11773,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "last_over_time(histogram_quantile(0.90, sum(rate(k6_http_req_duration_bucket{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[$__interval])) by (le,endpoint))[${__range_s}s:$__interval])",
@@ -11787,7 +11787,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[${__range_s}s])by(endpoint)",
@@ -11801,7 +11801,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[${__range_s}s])by(endpoint)\n/ sum(k6_http_reqs{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",endpoint=\"$endpoint\"}[${__range_s}s])by(endpoint)",
@@ -11856,7 +11856,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PB9732EF3D2790863"
+            "uid": "PBFA97CFB590B2093"
           },
           "fieldConfig": {
             "defaults": {
@@ -12001,7 +12001,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "sum(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\", expected_response=\"false\",endpoint=\"$endpoint\"}) by (endpoint,error_code,status,error)",
@@ -12015,7 +12015,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PB9732EF3D2790863"
+                "uid": "PBFA97CFB590B2093"
               },
               "exemplar": false,
               "expr": "count(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\", expected_response=\"false\",endpoint=\"$endpoint\"}) by (endpoint,error_code,status,error)",
@@ -12088,7 +12088,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "PB9732EF3D2790863"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "label_values(k6_vus, load_stand)",
         "description": "load stand",
@@ -12116,7 +12116,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "PB9732EF3D2790863"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "label_values(k6_vus{load_stand=\"$load_stand\"}, load_target)",
         "description": " system under test",
@@ -12144,7 +12144,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "PB9732EF3D2790863"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "label_values(k6_vus{load_stand=\"$load_stand\",load_target=\"$load_target\"}, runID)",
         "description": "test run  id",
@@ -12176,7 +12176,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "PB9732EF3D2790863"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "label_values(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}, scenario)",
         "hide": 0,
@@ -12207,7 +12207,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "PB9732EF3D2790863"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "label_values(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\",scenario=\"$scenario\"}, transaction)",
         "hide": 0,
@@ -12239,7 +12239,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "PB9732EF3D2790863"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "label_values(k6_http_req_failed{load_stand=\"$load_stand\",load_target=\"$load_target\",runID=\"$runID\"}, endpoint)",
         "hide": 0,

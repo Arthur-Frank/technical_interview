@@ -1,4 +1,4 @@
-import {   check, fail } from 'k6'
+import {   check, fail, sleep } from 'k6'
 import { Issue } from "./issue_class.js"
 import { Counter } from 'k6/metrics'
 import { randomIntBetween, randomItem } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js'
@@ -22,134 +22,168 @@ function changeParam(param) { //remove
 export const options = {
   insecureSkipTLSVerify: true,
   scenarios: {
-    creater: {
-      executor: "ramping-arrival-rate",
-      startRate: 0,
-      timeUnit: '2s',
-      preAllocatedVUs: 5,
-      maxVUs: 10,
-      stages: [
-        { duration: '30s', target: 2 },
-        { duration: '88m', target: 2 },
-        // { duration: '30s', target: 2},
-        // { duration: '3m', target: 2 },
-        // { duration: '30s', target: 3 },
-        // { duration: '3m', target: 3 },
-        // { duration: '30s', target: 4 },
-        // { duration: '30m', target: 4 },
-        // { duration: '1m', target: 14 },
-        // { duration: '5m', target: 14 },
-        // { duration: '1m', target: 16 },
-        // { duration: '5m', target: 16 },
-        // { duration: '1m', target: 18 },
-        // { duration: '5m', target: 18 },
-        // { duration: '1m', target: 20 },
-        // { duration: '35m', target: 20 }
-      ],
-      exec: 'createIssue' 
-    },
-    updater: {
+    // creater: {
+    //   executor: "ramping-arrival-rate",
+    //   startRate: 0,
+    //   timeUnit: '30s',
+    //   preAllocatedVUs: 10,
+    //   maxVUs: 10,
+    //   stages: [
+    //     { duration: '1m', target: 30 },
+    //     { duration: '355m', target: 30 },
+    //     // { duration: '30s', target: 2},
+    //     // { duration: '3m', target: 2 },
+    //     // { duration: '30s', target: 3 },
+    //     // { duration: '3m', target: 3 },
+    //     // { duration: '30s', target: 4 },
+    //     // { duration: '30m', target: 4 },
+    //     // { duration: '30s', target: 14 },
+    //     // { duration: '5m', target: 14 },
+    //     // { duration: '30s', target: 16 },
+    //     // { duration: '5m', target: 16 },
+    //     // { duration: '30s', target: 18 },
+    //     // { duration: '5m', target: 18 },
+    //     // { duration: '30s', target: 20 },
+    //     // { duration: '35m', target: 20 }
+    //   ],
+    //   exec: 'createIssue' 
+    // },
+    updateIssueChain: {
       executor: "ramping-arrival-rate",
       startRate: 0,
       timeUnit: '1s',
-      preAllocatedVUs: 250,
+      preAllocatedVUs: 50,
       maxVUs: 500,
       stages: [
-        { duration: '30s', target: 2 },
-        { duration: '3m', target: 2 },
-        { duration: '30s', target: 4},
-        { duration: '3m', target: 4 },
-        { duration: '30s', target: 6 },
-        { duration: '3m', target: 6 },
-        { duration: '30s', target: 8 },
-        { duration: '3m', target: 8 },
-        { duration: '30s', target: 10 },
-        { duration: '3m', target: 10 },
-        { duration: '30s', target: 12 },
-        { duration: '3m', target: 12 },
-        { duration: '30s', target: 14 },
-        { duration: '3m', target: 14 },
-        { duration: '30s', target: 16 },
-        { duration: '3m', target: 16 },
-        { duration: '30s', target: 18 },
-        { duration: '60m', target: 18 },
+        { duration: '30s', target: 5 },
+        { duration: '1m', target: 5 },
+        // { duration: '30s', target: 8 },
+        // { duration: '5m', target: 8 },
+        // { duration: '30s', target: 12 },
+        // { duration: '5m', target: 12 },
+        // { duration: '30s', target: 14 },
+        // { duration: '5m', target: 14 },
+        // { duration: '30s', target: 16 },
+        // { duration: '5m', target: 16 },
         // { duration: '30s', target: 20 },
-        // { duration: '20m', target: 20 },
+        // { duration: '5m', target: 20 },
+        // { duration: '30s', target: 24 },
+        // { duration: '5m', target: 24 },
+        // { duration: '30s', target: 28 },
+        // { duration: '5m', target: 28 },
+        // { duration: '30s', target: 32 },
+        // { duration: '5m', target: 32 },
+        // { duration: '30s', target: 36 },
+        // { duration: '5m', target: 36 },
+        // { duration: '30s', target: 40 },
+        // { duration: '5m', target: 40 },
+        // { duration: '30s', target: 44 },
+        // { duration: '5m', target: 44 },
+        // { duration: '30s', target: 48 },
+        // { duration: '5m', target: 48 },
+        // { duration: '30s', target: 52 },
+        // { duration: '5m', target: 52 },
+        // { duration: '30s', target: 56 },
+        // { duration: '5m', target: 56 },
+        // { duration: '30s', target: 60 },
+        // { duration: '5m', target: 60 },
+        // { duration: '30s', target: 64 },
+        // { duration: '5m', target: 64 },
+        // { duration: '30s', target: 68 },
+        // { duration: '5m', target: 68 },
+        // { duration: '30s', target: 72 },
+        // { duration: '5m', target: 72 },
+        // { duration: '30s', target: 76 },
+        // { duration: '5m', target: 76 },
+        // { duration: '30s', target: 80 },
+        // { duration: '5m', target: 80 },
+        // { duration: '30s', target: 84 },
+        // { duration: '5m', target: 84 },
+        // { duration: '30s', target: 88 },
+        // { duration: '5m', target: 88 },
+        // { duration: '30s', target: 92 },
+        // { duration: '5m', target: 92 },
+        // { duration: '30s', target: 96 },
+        // { duration: '5m', target: 96 },
+        // { duration: '30s', target: 100 },
+        // { duration: '5m', target: 100 },
+        // { duration: '30s', target: 104 },
+        // { duration: '5m', target: 104 },
+        // { duration: '30s', target: 108 },
+        // { duration: '5m', target: 108 },
+        // { duration: '30s', target: 112 },
+        // { duration: '5m', target: 112 },
+        // { duration: '30s', target: 116 },
+        // { duration: '5m', target: 116 },
+        // { duration: '30s', target: 120 },
+        // { duration: '5m', target: 120 },
+        // { duration: '30s', target: 124 },
+        // { duration: '5m', target: 124 },
+        // { duration: '180m', target: 124 },
       ],
-      exec: 'updateIssueChain'
+      // exec: 'updateIssueChain'
     },
   }
 }
 
+// export function createIssue() {
+//   let issue = new Issue(data)
+//   let creater
+//   describe('create user', (t) => {
+//     creater = issue.createUser()
+//     creater = creater.json()
+//     //creater used twice to check if it affects the way it is shown on monitoring dahsboard. check removed. 
+//   })
+//   sleep(7)
+//   describe('delete user', (t) => {
+//     issue.deleteUser(creater)
+//   //moved delted to creation in order to not affect update phase. 
+//   })
+// }
 
-
-export function createIssue() {
-  let issue = new Issue(data)
-  describe('create user', (t) => {
-  let creater = issue.createUser()
-    if (
-      !check(creater, {
-        "returned json for created user has data": (creater) => creater.json(),
-      })
-    ) {
-      console.log(creater)
-      this.errorCounter.add(1, {
-        status: creater.status,
-        status_text: creater.status_text,
-        error: creater.error,
-        error_code: creater.error_code,
-        method: creater.request.method,
-        endpoint: this.tags.endpoint,
-        check_error: "no JSON for created user"
-      })
-      if (Boolean(!__ENV.DEBUG)) {
-        fail(`No JSON returned for creaeted user`)
-      }
-    }
-  })
-}
-
-export function updateIssueChain() {
+export default function updateIssueChain() {
   let issue = new Issue(data)
   let users_list
 
   describe('get users list', (t) => {
-    users_list = issue.getUsers().json()
-    if (
-      !check ( users_list, {
-        "returned list of users has data": (users_list) => users_list, 
-      }) 
-    ){
-      if (Boolean(!__ENV.DEBUG)) {
-        fail("could not return list of users or it's empty ")
-      }
-    }
+    users_list = issue.getUsers()
+    users_list = users_list.json()
+    // if (
+    //   !check ( users_list, {
+    //     "returned list of users has data": (users_list) => users_list, 
+    //   }) 
+    // ){
+    //   if (Boolean(!__ENV.DEBUG)) {
+    //     fail("could not return list of users or it's empty ")
+    //   }
+    // }
   })
 
-  let user = randomItem(users_list)
-  user.gender = changeParam(user.gender)
-  describe('update user', (t) => {
-      issue.updateUser(user)
-  })
+  // let user = randomItem(users_list)
+  // user.gender = changeParam(user.gender)
+  // let user = {
+  //   "id": "152ea4c3-5297-4f31-a080-7b5b02f0ba91",
+  //   "firstname": "Arvel",
+  //   "lastname": "Goldner",
+  //   "phone": "9634774916",
+  //   "email": "mohamedgusikowski@ebert.name",
+  //   "gender": "female"
+  // }
+  // describe('update user', (t) => {
+  //     issue.updateUser(user)
+  // })
 
-  describe('get updated user', (t) => {
-    let get_user = issue.getUser(user.id).json()
-    if (
-      !check ( get_user, {
-// for some reason direct comparison of JSONs object doesn't work  (get_user != user by interpreter)
-        "user updated correctly": (get_user) => get_user.id == user.id && get_user.gender == user.gender, 
-      }) 
-    ){
-      if (Boolean(!__ENV.DEBUG)) {
-        fail(`user JSON is not updated`)        
-      }
-    }
-  })
-    if (__VU%250===0 && __VU>0){
-      describe('delete user', (t) => {
-        issue.deleteUser(user)
-        console.log(`delete used on iter: ${__ITER} for user: ${__VU}`)
-      })
-  }
-
+  // describe('get updated user', (t) => {
+  //   let get_user = issue.getUser("152ea4c3-5297-4f31-a080-7b5b02f0ba91").json()
+//     if (
+//       !check ( get_user, {
+// // for some reason direct comparison of JSONs object doesn't work  (get_user != user by interpreter)
+//         "user updated correctly": (get_user) => get_user.id == user.id && get_user.gender == user.gender, 
+//       }) 
+//     ){
+//       if (Boolean(!__ENV.DEBUG)) {
+//         fail(`user JSON is not updated`)        
+//       }
+//     }
+//  })
 }

@@ -3,9 +3,6 @@ import {
     check,
     fail 
 } from 'k6'
-import {
-    generateURL
-} from 'https://services.nt01.detmir-infra.ru/k6-libs/helpers/url.js'
 
 class Issue{
     constructor(data) {
@@ -91,12 +88,15 @@ class Issue{
 
     getUsers() {
         this.tags.endpoint = "/api/v1/users/getusers"
-        const url = generateURL(`${this.api_url}${this.tags.endpoint}`, this.searchParams)
+        const url = (`${this.api_url}${this.tags.endpoint}`)
         const res = http.get(url.toString(), {
             headers: this.headers,
             tags: this.tags,
             responseCallback: this.responseCallback
         })
+        if (res.status == 500){
+            console.log(`get users is 500 ${res.body}`)
+        }
         if (
             !check(res, {
                 "got users list": (res) => res.status == 200,
@@ -167,7 +167,6 @@ class Issue{
             responseCallback: this.responseCallback
         })
         if (
-
             !check(res, {
                 "status == 200, user deleted" : (res) => res.status == 200,
             }, {

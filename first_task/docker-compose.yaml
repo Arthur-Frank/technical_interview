@@ -30,42 +30,42 @@ services:
     labels:
         org.label-schema.group: "technical_interview"
 
-  vmagent:
-    image: victoriametrics/vmagent
-    container_name: vmagent
-    depends_on:
-      - "victoria_metrics"
-    ports:
-      - 8429:8429
-    volumes:
-      - vmagent_data:/vmagentdata
-    command:
-      - '--remoteWrite.url=http://victoria_metrics:8428/api/v1/write'
-    networks:
-      - technical_interview
+  # vmagent:
+  #   image: victoriametrics/vmagent
+  #   container_name: vmagent
+  #   depends_on:
+  #     - "victoria_metrics"
+  #   ports:
+  #     - 8429:8429
+  #   volumes:
+  #     - vmagent_data:/vmagentdata
+  #   command:
+  #     - '--remoteWrite.url=http://victoria_metrics:8428/api/v1/write'
+  #   networks:
+  #     - technical_interview
 
-  victoria_metrics:
-    image: victoriametrics/victoria-metrics
-    container_name: victoria_metrics  
-    volumes:
-      - victoria_metrics_data:/victoria-metrics-data
-    command:
-      - '--retentionPeriod=7d'
-      - '--storageDataPath=/storage'
-      - '--graphiteListenAddr=:2003'
-      - '--opentsdbListenAddr=:4242'
-      - '--httpListenAddr=:8428'
-      - '--influxListenAddr=:8089'
-    ports:
-      - 8428:8428
-      - 8089:8089
-      - 8089:8089/udp
-      - 2003:2003
-      - 4242:4242
-    networks:
-      - technical_interview
-    labels:
-      org.label-schema.group: "technical_interview"   
+  # victoria_metrics:
+  #   image: victoriametrics/victoria-metrics
+  #   container_name: victoria_metrics  
+  #   volumes:
+  #     - victoria_metrics_data:/victoria-metrics-data
+  #   command:
+  #     - '--retentionPeriod=7d'
+  #     - '--storageDataPath=/storage'
+  #     - '--graphiteListenAddr=:2003'
+  #     - '--opentsdbListenAddr=:4242'
+  #     - '--httpListenAddr=:8428'
+  #     - '--influxListenAddr=:8089'
+  #   ports:
+  #     - 8428:8428
+  #     - 8089:8089
+  #     - 8089:8089/udp
+  #     - 2003:2003
+  #     - 4242:4242
+  #   networks:
+  #     - technical_interview
+  #   labels:
+  #     org.label-schema.group: "technical_interview"   
       
   prometheus:
     image: prom/prometheus
@@ -108,25 +108,25 @@ services:
     labels:
       org.label-schema.group: "technical_interview"
 
-  nodeexporter:
-    image: prom/node-exporter
-    container_name: node-exporter
-    user: root
-    privileged: true
-    volumes:
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /:/rootfs:ro
-    command:
-      - '--path.procfs=/host/proc'
-      - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
-    ports:
-      - 9100:9100
-    networks:
-      - technical_interview
-    labels:
-      org.label-schema.group: "technical_interview"
+  # nodeexporter:
+  #   image: prom/node-exporter
+  #   container_name: node-exporter
+  #   user: root
+  #   privileged: true
+  #   volumes:
+  #     - /proc:/host/proc:ro
+  #     - /sys:/host/sys:ro
+  #     - /:/rootfs:ro
+  #   command:
+  #     - '--path.procfs=/host/proc'
+  #     - '--path.sysfs=/host/sys'
+  #     - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+  #   ports:
+  #     - 9100:9100
+  #   networks:
+  #     - technical_interview
+  #   labels:
+  #     org.label-schema.group: "technical_interview"
   
   statsd-exporter:
     image: prom/statsd-exporter
@@ -154,7 +154,7 @@ services:
       - postgres_data:/postgres   
     environment:
       POSTGRES_PASSWORD: postgres
-    command: postgres -c shared_preload_libraries='pg_stat_statements' -c pg_stat_statements.track=all -c pg_stat_statements.track_planning=true -c max_connections=100
+    command: postgres -c shared_preload_libraries='pg_stat_statements' -c pg_stat_statements.track=all -c pg_stat_statements.track_planning=true -c max_connections=200
     ports:
       - 5432:5432
     networks:

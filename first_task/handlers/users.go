@@ -13,8 +13,8 @@ import (
 )
 
 var (
-	ch     = make(chan uuid.UUID, 1000)
-	uuids  = make([]uuid.UUID, 0, 10000)
+	ch     = make(chan users.User, 10000)
+	uuids  = make([]users.User, 0, 10000)
 	start  = time.Now()
 	enable = false
 )
@@ -55,6 +55,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 			WriteHTTPError(w, http.StatusInternalServerError, err)
 			return
 		}
+		ch <- user
 		err = json.NewEncoder(w).Encode(user)
 		if err != nil {
 			WriteHTTPError(w, http.StatusInternalServerError, err)
@@ -86,9 +87,9 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if enable {
-		ch <- user.ID
+		ch <- user
 	}
-	err = user.Update()
+	user.Update()
 }
 
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
@@ -99,15 +100,15 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if enable {
-		ch <- user.ID
+		ch <- user
 	}
-	err = user.Delete()
+	user.Delete()
 }
 
 func reader() {
 	for {
 		u := <-ch
-		if (rand.Intn(5-1) + 1) == 4 {
+		if (rand.Intn(3 - 1)) == 1 {
 			uuids = append(uuids, u)
 		}
 	}
